@@ -7,14 +7,16 @@ function App() {
   const [count, setCount] = useState(0)
   const [myMessage, setMyMessage] = useState("")
 
-  const helloWorld = async() => {
-    await
+  const helloWorld = () => {
     fetch('/api/helloWorld')
-           
+      .then(response => response.text())
+      .then(message => {
+        setMyMessage(message);
+      })
   };
 
   useEffect(() => {
-    setMyMessage(helloWorld().text())
+    helloWorld()
   }, [])
 
   return (
