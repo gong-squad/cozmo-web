@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { useEffect } from 'react'
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className="flex">
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -30,7 +31,8 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <h2>{myMessage}</h2>
+      <h2 className="text-3xl font-bold">{myMessage}</h2>
+      <Link to={`shops`} className="text-3xl font-bold underline" >go to shops</Link>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
